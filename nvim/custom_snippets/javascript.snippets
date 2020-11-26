@@ -1,0 +1,72 @@
+snippet rfnc "React Functional Component" b
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './${2:$1}.css';
+
+function ${1:`!v expand('%:t:r')`}({ $3 }) {
+	return (
+		<${5:div} className={styles.base}>
+			$0
+		</$5>
+	);
+}
+
+$1.defaultProps = {$4};
+
+$1.propTypes = {`!p
+props = t[3]
+if props:
+  snip >> 1
+  for prop in props.split(', '):
+    snip += prop + ': PropTypes.any,'
+`
+};
+
+export default $1;
+endsnippet
+
+snippet rfec "react functional componet with frgament" b
+import React,{ Fragment } from 'react'
+
+const ${1:`!v expand('%:t:r')`} = (props) => {
+
+    return (
+        <Fragment>
+            <${2:div} className="something">
+							<h1>{props.title}</h1>
+							<p>{props.blurb}</p>
+						</$2>
+        </Fragment>
+    )
+}
+
+$1.defaultProps = {
+    title: 'Title info here',
+    blurb: 'Main paragraph contant here'
+}
+
+export default $1
+endsnippet
+
+snippet mehe "Add Helmet Meta Tag to page" b
+<Helmet>
+<title>SEO Page title</title>
+<meta name="description" content="creative business consultancy for start-ups, scale-ups & entrepreneurs." />
+<meta name="keywords" content="Blog Page, Brighton, London, UK, Web Design Experts, UX Design, UI Design, Business Transformation, Affordable web design, Brand Identity, Branding, Visual Identity, Web Design, Mobile app, Saas, Wordpress, React, Vue, Angular, javascript, js, node, service, ecommerce, digital agency, experts, expertise, local, national, international" />
+<meta name="author" content="Name of author here" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</Helmet>
+
+endsnippet
+
+snippet imph "add helmet import" b
+import { Helmet } from 'react-helmet'
+endsnippet
+
+snippet tprops "render prop text here" b
+classnameX.defaultProps = {
+text_1: 'Put your text here',
+text_2: 'Put your text here',
+text_3: 'Put your text here',
+}
+endsnippet
